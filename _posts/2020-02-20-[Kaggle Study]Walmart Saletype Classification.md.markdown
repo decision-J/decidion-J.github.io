@@ -108,10 +108,7 @@ print("train set의 shape은", train.shape, "/ test set의 shape은", test.shape
 
 ​	Competition description을 살펴보면 TripType변수의 999 값은 "기타" 항목입니다. plot의 가독성을 위해 이 값을 -1로 변경한 뒤 살펴보겠습니다.
 
-
-
-![png](C:/Users/JYW/Desktop/Github/decision-J.github.io/assets/walmart/output_3_0.png)
-
+![png](https://github.com/decision-J/decision-J.github.io/blob/master/assets/walmart/output_3_0.png)
 
 
 ​	Type값이 0~44까지 존재하고 있음을 알 수 있습니다. 상당히 많은 multi-label classification 문제 입니다. 또 한가지 주목할만한 특징은 많은 타입들 중 39와 40번 타입이 눈에 띄게 많다는 점입니다. 특히 40번 type은 굉장히 많은 빈도를 보여줍니다. 따라서 이 두 가지 type에 대한 특징을 잘 잡아내는 것이 중요할 것으로 판단됩니다.
@@ -121,11 +118,8 @@ print("train set의 shape은", train.shape, "/ test set의 shape은", test.shape
 ### Weekday
 
 
-
-![png](C:/Users/JYW/Desktop/Github/decision-J.github.io/assets/walmart/output_3.png)
-
+![png](https://github.com/decision-J/decision-J.github.io/blob/master/assets/walmart/output_3.png)
 ​
-
 ​	Weekday변수는 물건을 구매한 요일에 대한 정보입니다. 아무래도 휴일인 금, 토, 일에 대한 정보가 많은 것이 확인됩니다. 평일과 주말로 구분하여 분석하는 것도 좋은 방법일 것 같습니다.
 
 
@@ -133,9 +127,7 @@ print("train set의 shape은", train.shape, "/ test set의 shape은", test.shape
 ### ScanCount
 
 
-
-![png](C:/Users/JYW/Desktop/Github/decision-J.github.io/assets/walmart/output_3.1.png)
-
+![png](https://github.com/decision-J/decision-J.github.io/blob/master/assets/walmart/output_3.1.png)
 ​
 
 ​	ScanCount 변수는 고객이 구입한 물건의 개수에 관한 정보입니다. 주로 1개의 물건을 구입하는 고객이 많은 것을 확인할 수 있습니다. 최대 많은 물품을 구입한 개수는 5개입니다. -1값은 고객이 물건을 "반품" 처리 하는 경우입니다. 그 수가 많지는 않지만 특수한 Type을 구분하는 데 도움이 될 수 있을 것 같습니다. 이에 어떤 품목이 가장 많이 반품되는지 알아봤습니다.
