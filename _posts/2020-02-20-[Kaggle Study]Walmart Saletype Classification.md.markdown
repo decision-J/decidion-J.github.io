@@ -3,7 +3,7 @@ layout: post
 title:  "[Kaggle Study]Walmart SaleType Classification"
 date:   2020-02-20
 author: HaeYong JOUNG
-tags: 
+tags:
 ---
 
 ## Kaggle Study #1. - Walmart SaleType Classification
@@ -110,11 +110,11 @@ print("train set의 shape은", train.shape, "/ test set의 shape은", test.shape
 
 
 
-![png](C:/Users/JYW/Desktop/Github/repository/decision-J.github.io/img/walmart/output_3_0.png)
+![png](C:/Users/JYW/Desktop/Github/decision-J.github.io/assets/walmart/output_3_0.png)
 
 
 
-​	Type값이 0~44까지 존재하고 있음을 알 수 있습니다. 상당히 많은 multi-label classification 문제 입니다. 또 한가지 주목할만한 특징은 많은 타입들 중 39와 40번 타입이 눈에 띄게 많다는 점입니다. 특히 40번 type은 굉장히 많은 빈도를 보여줍니다. 따라서 이 두 가지 type에 대한 특징을 잘 잡아내는 것이 중요할 것으로 판단됩니다. 
+​	Type값이 0~44까지 존재하고 있음을 알 수 있습니다. 상당히 많은 multi-label classification 문제 입니다. 또 한가지 주목할만한 특징은 많은 타입들 중 39와 40번 타입이 눈에 띄게 많다는 점입니다. 특히 40번 type은 굉장히 많은 빈도를 보여줍니다. 따라서 이 두 가지 type에 대한 특징을 잘 잡아내는 것이 중요할 것으로 판단됩니다.
 
 
 
@@ -122,9 +122,9 @@ print("train set의 shape은", train.shape, "/ test set의 shape은", test.shape
 
 
 
-![png](C:/Users/JYW/Desktop/Github/repository/decision-J.github.io/img/walmart/output_3.png)
+![png](C:/Users/JYW/Desktop/Github/decision-J.github.io/assets/walmart/output_3.png)
 
-​	
+​
 
 ​	Weekday변수는 물건을 구매한 요일에 대한 정보입니다. 아무래도 휴일인 금, 토, 일에 대한 정보가 많은 것이 확인됩니다. 평일과 주말로 구분하여 분석하는 것도 좋은 방법일 것 같습니다.
 
@@ -134,11 +134,11 @@ print("train set의 shape은", train.shape, "/ test set의 shape은", test.shape
 
 
 
-![png](C:/Users/JYW/Desktop/Github/repository/decision-J.github.io/img/walmart/output_3.1.png)
+![png](C:/Users/JYW/Desktop/Github/decision-J.github.io/assets/walmart/output_3.1.png)
 
-​	
+​
 
-​	ScanCount 변수는 고객이 구입한 물건의 개수에 관한 정보입니다. 주로 1개의 물건을 구입하는 고객이 많은 것을 확인할 수 있습니다. 최대 많은 물품을 구입한 개수는 5개입니다. -1값은 고객이 물건을 "반품" 처리 하는 경우입니다. 그 수가 많지는 않지만 특수한 Type을 구분하는 데 도움이 될 수 있을 것 같습니다. 이에 어떤 품목이 가장 많이 반품되는지 알아봤습니다. 
+​	ScanCount 변수는 고객이 구입한 물건의 개수에 관한 정보입니다. 주로 1개의 물건을 구입하는 고객이 많은 것을 확인할 수 있습니다. 최대 많은 물품을 구입한 개수는 5개입니다. -1값은 고객이 물건을 "반품" 처리 하는 경우입니다. 그 수가 많지는 않지만 특수한 Type을 구분하는 데 도움이 될 수 있을 것 같습니다. 이에 어떤 품목이 가장 많이 반품되는지 알아봤습니다.
 
 
 
@@ -160,7 +160,7 @@ train[train['ScanCount']==-1]["DepartmentDescription"].value_counts().head(10)
     BEAUTY                 426
     Name: DepartmentDescription, dtype: int64
 
-​	
+​
 
 ​	반품이 가장 많은 상위 10개 품목을 뽑았습니다. 금융 서비스가 가장 취소가 많은 것으로 나타납니다. 또한 의류,  약품 같은 생필품의 반품이 가장 많은 것으로 보입니다.
 
@@ -168,7 +168,7 @@ train[train['ScanCount']==-1]["DepartmentDescription"].value_counts().head(10)
 
 ### UPC, DepartmentDescription, FinelineNumber
 
-​	UPC와 DepartmentDescription, FinelineNumber 이 3가지 변수는 한꺼번에 살펴보겠습니다. 그 이유는 첫 째,  전체 data set에서 결측값이 존재하는 변수들이기 때문입니다. 둘 째, UPC와 FinelineNumber변수는 유사도가 높습니다. 먼저 이들의 결측값에 대해 살펴보겠습니다. 
+​	UPC와 DepartmentDescription, FinelineNumber 이 3가지 변수는 한꺼번에 살펴보겠습니다. 그 이유는 첫 째,  전체 data set에서 결측값이 존재하는 변수들이기 때문입니다. 둘 째, UPC와 FinelineNumber변수는 유사도가 높습니다. 먼저 이들의 결측값에 대해 살펴보겠습니다.
 
 
 
@@ -319,7 +319,7 @@ dtype: int64
 <p>3986 rows × 7 columns</p>
 
 
-​	그렇다면 FinelineNumber의 값이 Missing이지만 DepartmentDescription의 값이 Not Missing인 case는 어떤 것일까요? 
+​	그렇다면 FinelineNumber의 값이 Missing이지만 DepartmentDescription의 값이 Not Missing인 case는 어떤 것일까요?
 
 
 
@@ -342,9 +342,9 @@ train[(train['FinelineNumber'].isnull()) & (train['DepartmentDescription'].notnu
 
 ## Base-line Model
 
-​	우선 가장 간단하게 base-line model을 만들어서 성능을 체크해보겠습니다. Base-line model이니 만큼 가장 간단하게 building하여 성능의 바로미터로 삼겠습니다. 
+​	우선 가장 간단하게 base-line model을 만들어서 성능을 체크해보겠습니다. Base-line model이니 만큼 가장 간단하게 building하여 성능의 바로미터로 삼겠습니다.
 
-​	먼저 EDA를 통해 얻은 정보를 바탕으로 데이터 전처리 과정을 거쳐봅니다. 
+​	먼저 EDA를 통해 얻은 정보를 바탕으로 데이터 전처리 과정을 거쳐봅니다.
 
 1. UPC 변수 제거
 2. FinelineNumber 변수 결측값 제거
@@ -376,10 +376,7 @@ def build_model():
 
 ​	Keras를 사용하여 Deep Learning 모델을 구축하였으며 3개의 층을 쌓았습니다. rsmprop optimizer를 사용하고 categorical_crossentropy를 loss function으로 사용하였습니다. Metric은 Customize를 통해 build-up할 수 있으나 간단하게 accuracy를 사용하였습니다.
 
-​	3-fold로 모델을 학습한 결과 Kaggle leader보드 기준 **2.36**의 score를 기록했습니다. 
-
-
-
+​	3-fold로 모델을 학습한 결과 Kaggle leader보드 기준 **2.36** 의 score를 기록했습니다.
 
 
 ## Advanced Model with Feature Engineering
@@ -394,7 +391,7 @@ def build_model():
 
 
 
-​	앞서 base-line model에서는 DepartmentDescription 변수를 제거하고 분석을 진행했습니다. 그 이유는 Visit Number당 중복 정보가 존재하기 때문이었습니다. 이 것이 어떤 점이 문제인지 살펴보겠습니다. 먼저 주어진 data는 구매이력 데이터입니다. 즉, VisitNumber는 고객의 ID이며 VisitNumber 하나당 구매 물품 정보들이 중복되어 들어 있습니다. 예를 들어, 다음과 같은 사례를 살펴보겠습니다. 
+​	앞서 base-line model에서는 DepartmentDescription 변수를 제거하고 분석을 진행했습니다. 그 이유는 Visit Number당 중복 정보가 존재하기 때문이었습니다. 이 것이 어떤 점이 문제인지 살펴보겠습니다. 먼저 주어진 data는 구매이력 데이터입니다. 즉, VisitNumber는 고객의 ID이며 VisitNumber 하나당 구매 물품 정보들이 중복되어 들어 있습니다. 예를 들어, 다음과 같은 사례를 살펴보겠습니다.
 
 
 
@@ -513,7 +510,7 @@ train[train["VisitNumber"]==19]
 
 ​	위 자료는 VisitNumber가 19인 고객의 정보만을 따로 추려낸 것입니다. 자료를 살펴보면 19번 고객이 같은 날에 총 9개의 품목을 구매하였음을 확인할 수 있습니다. DepartmentDescription 변수를 보면 다양한 품목들을 구매했습니다. 하지만 이 모든 행의 TripType이 동일하게 42로 규정되어 있습니다. 즉, Walmart 측에서는 이 9개 품목의 정보를 전부 반영하여 (동일한 날의 구매 정보를 모두 반영하여) 고객의 구매 Type을 정하고 있음을 알 수 있습니다. 따라서 최종 모델에 VisitNumber를 기준으로 중복제거를 할 시 나머지 품목들의 정보가 모두 사라지게 되어 정확한 분석이 불가능해지게 됩니다.
 
-​	따라서 모든 품목에 대한 정보를 반영하는 작업을 거칠 것입니다. 그 방법은 VisitNumber를 기준으로 DepartmentDescription 정보를 횡으로 늘어 놓는 것입니다. 다음의 예시를 보면 이해가 쉽습니다. 
+​	따라서 모든 품목에 대한 정보를 반영하는 작업을 거칠 것입니다. 그 방법은 VisitNumber를 기준으로 DepartmentDescription 정보를 횡으로 늘어 놓는 것입니다. 다음의 예시를 보면 이해가 쉽습니다.
 
 
 
@@ -672,11 +669,11 @@ train[train["VisitNumber"]==19]
 
 1. **FinelineNumber의 Count값을 활용**
 
-   ​	FinelineNumber는 0~2,000까지 다양한 값을 갖습니다. 하지만 품목 별로 고객들이 자주 구매하는 품목, 자주 구매하지 않는 품목으로 나뉩니다. 따라서 각 FinelineNumber들을 Count값으로 변환한 뒤, VisitNumber를 기준으로 그 값을 평균내어 변수로 활용해보겠습니다. 이 변수를 통해 고객이 보편적인 성향을 갖는 타입인지, 마이너한 품목을 즐겨 찾는 고객인지를 살펴볼 수 있을 겁니다. 
+   ​	FinelineNumber는 0~2,000까지 다양한 값을 갖습니다. 하지만 품목 별로 고객들이 자주 구매하는 품목, 자주 구매하지 않는 품목으로 나뉩니다. 따라서 각 FinelineNumber들을 Count값으로 변환한 뒤, VisitNumber를 기준으로 그 값을 평균내어 변수로 활용해보겠습니다. 이 변수를 통해 고객이 보편적인 성향을 갖는 타입인지, 마이너한 품목을 즐겨 찾는 고객인지를 살펴볼 수 있을 겁니다.
 
    ​	먼저 FinlineNumber 값의 Count 값을 구해봅니다.
 
-   
+
 
 
    ```python
@@ -956,13 +953,13 @@ FineLineSum = train[['VisitNumber', 'FinelineNumber']].groupby('VisitNumber').co
 
 
 
-​		위 테이블을 data set에 붙이기만 하면 됩니다. 5번 고객은 1개의 물품밖에 구매하지 않았습니다. 이에 비해 8	번 고객은 22개의 물품이나 구매했네요! 이러한 정보들이 고객의 Type을 맞추는 데 도움을 줄 것입니다. 
+​		위 테이블을 data set에 붙이기만 하면 됩니다. 5번 고객은 1개의 물품밖에 구매하지 않았습니다. 이에 비해 8	번 고객은 22개의 물품이나 구매했네요! 이러한 정보들이 고객의 Type을 맞추는 데 도움을 줄 것입니다.
 
 
 
 ### Modeling
 
-​	새로 생성한 파생변수들만을 가지고 Modeling을 진행해보겠습니다. Model의 스펙은 앞서 base-line model과 동일합니다. 
+​	새로 생성한 파생변수들만을 가지고 Modeling을 진행해보겠습니다. Model의 스펙은 앞서 base-line model과 동일합니다.
 
 
 
@@ -975,15 +972,15 @@ def build_model():
     model.add(layers.Dense(64, activation='relu', input_shape=(x_train.shape[1],)))
     model.add(layers.Dense(64, activation='relu'))
     model.add(layers.Dense(38, activation='softmax'))
-    
+
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
 return model
 ```
 
 
-​	Kaggle leaderboard기준 **7.80**의 Score를 기록했습니다. 앞서 파생변수를 생성하기 전에 비해 상당히 성능이 나빠진 모습을 확인할 수 있습니다. 
+​	Kaggle leaderboard기준 **7.80** 의 Score를 기록했습니다. 앞서 파생변수를 생성하기 전에 비해 상당히 성능이 나빠진 모습을 확인할 수 있습니다.
 
-​	이는 앞서 잠시 언급했었던 data의 sparsity때문입니다. DepartmentDescription 변수를 기준으로 만든 파생변수들의 수가 많은 데다 많은 행이 0의 값을 가지고 있기 때문에 model의 성능이 나빠질 수 밖에 없습니다. 이를 해결하기 위해서는 다양한 방법론들이 존재합니다. 본 분석에서는 Deep Learning model의 layer의 Dense층을 더 늘리는 방법을 통해 이 방법을 해결해보고자 합니다. 
+​	이는 앞서 잠시 언급했었던 data의 sparsity때문입니다. DepartmentDescription 변수를 기준으로 만든 파생변수들의 수가 많은 데다 많은 행이 0의 값을 가지고 있기 때문에 model의 성능이 나빠질 수 밖에 없습니다. 이를 해결하기 위해서는 다양한 방법론들이 존재합니다. 본 분석에서는 Deep Learning model의 layer의 Dense층을 더 늘리는 방법을 통해 이 방법을 해결해보고자 합니다.
 
 
 
@@ -996,14 +993,14 @@ def build_model():
     model.add(layers.Dense(128, activation='relu', input_shape=(x_train.shape[1],)))
     model.add(layers.Dense(128, activation='relu'))
     model.add(layers.Dense(38, activation='softmax'))
-    
+
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
 return model
 ```
 
 
 
-​	앞 선 model에 비하여 각 층의 Dense를 128로 확장시켰습니다. 이는 변수가 늘어남에 따라 Deep Learning model이 학습할 parameter space를 확장시켜주기 위함입니다. 새로 학습한 model의 score는 **2.27**입니다. Base-line model에 대비하여 향상된 성능을 보여줍니다. 
+​	앞 선 model에 비하여 각 층의 Dense를 128로 확장시켰습니다. 이는 변수가 늘어남에 따라 Deep Learning model이 학습할 parameter space를 확장시켜주기 위함입니다. 새로 학습한 model의 score는 **2.27** 입니다. Base-line model에 대비하여 향상된 성능을 보여줍니다.
 
 
 
@@ -1058,19 +1055,19 @@ predictions = op_clf.predict_proba(x_test)
 
 
 
-​	아무래도 딥러닝이 RF에 비해 추후에 나온 학습법이기 때문에 앞선 모델에 비해 성능이 안좋을 것이라고 생각했던 제 예측은 완벽히 오산이었습니다. Kaggle 기준 **2.09**로 현재까지의 model들 중 가장 뛰어난 성능을 보여줬습니다. 
+​	아무래도 딥러닝이 RF에 비해 추후에 나온 학습법이기 때문에 앞선 모델에 비해 성능이 안좋을 것이라고 생각했던 제 예측은 완벽히 오산이었습니다. Kaggle 기준 **2.09** 로 현재까지의 model들 중 가장 뛰어난 성능을 보여줬습니다.
 
 
 
 
 
-## 시사점 
+## 시사점
 
  1. **단순한 딥러닝 모델은 정교한 머신러닝 모델보다 못하다?**
 
-    앞서 살펴본 것처럼 딥러닝 모델에 비해 parameter tuning을 거친 Random Forest model이 더 좋은 성능을 보여줬습니다. 이에 대해 크게 두 가지 이유를 예상해보았습니다. 
+    앞서 살펴본 것처럼 딥러닝 모델에 비해 parameter tuning을 거친 Random Forest model이 더 좋은 성능을 보여줬습니다. 이에 대해 크게 두 가지 이유를 예상해보았습니다.
 
-    먼저, 우리가 가진 딥러닝 모델이 너무 단순합니다. 은닉 layer가 2개뿐이고 Dropout과 같은 over-fitting 방지 기법들도 적용해주지 않았기 때문에 정교하게 tuning된 RF에 비해 성능이 떨어지는 것이라고 예측해볼 수 있습니다. 
+    먼저, 우리가 가진 딥러닝 모델이 너무 단순합니다. 은닉 layer가 2개뿐이고 Dropout과 같은 over-fitting 방지 기법들도 적용해주지 않았기 때문에 정교하게 tuning된 RF에 비해 성능이 떨어지는 것이라고 예측해볼 수 있습니다.
 
     다음으로는 RF의 Robustness때문입니다. Tree 기반인 RF는 다른 모델들에 비해 안정적이고 Robust한 모델로 알려져 있습니다. DepartmentDesciption 파생변수로 인해 data의 sparsity가 높아진 지금, 이러한 RF의 특징이 빛을 발한 것으로 생각됩니다. 따라서 PCA등과 같이 Spasity를 잡아주는 방법을 적용하여 딥러닝 모델에 적용한다면 더 좋은 성능을 얻을 수 있을 것 같습니다.
 
@@ -1078,7 +1075,4 @@ predictions = op_clf.predict_proba(x_test)
 
 2. **결측값 imputation**
 
-   위 분석에서 결측값에 대한 처리는 따로 해주지 않았습니다. 그 이유는 결측값이 3,000여 개로 전체 dataset크기 대비 작았기 때문인데요. 그래도 이 부분에 대한 imputation이 이루어졌다면 더 좋은 분석이 되었을 것 같습니다. 
-
-
-
+   위 분석에서 결측값에 대한 처리는 따로 해주지 않았습니다. 그 이유는 결측값이 3,000여 개로 전체 dataset크기 대비 작았기 때문인데요. 그래도 이 부분에 대한 imputation이 이루어졌다면 더 좋은 분석이 되었을 것 같습니다.
