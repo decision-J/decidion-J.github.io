@@ -1,7 +1,6 @@
 # External gems
 # See http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html for making `jekyll archives` work.
 plugins_dir:
-  - jekyll-archives # Sorry, not GitHub pages friendly!
   - jekyll-sitemap
   - jekyll-paginate
 
@@ -25,8 +24,8 @@ description: >
 # root of your server.
 baseurl: ""# the subpath of your site, e.g. /blog/
 url: "http://decision-J.github.io" # the base hostname & protocol for your site
-cover: "/assets/header_image.jpg"
-logo: "/assets/logo.png"
+cover: "/assets/elephant.jpg"
+logo: "/assets/jlogo.png"
 
 # Build settings
 markdown: kramdown
@@ -34,16 +33,6 @@ paginate: 5
 paginate_path: "/page:num/"
 inter_post_navigation: false
 highlightjs_theme: "monokai-sublime"
-
-# Archive settings (see https://github.com/jekyll/jekyll-archives/)
-jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layout: 'archive'
-  permalinks:
-    category: '/category/:name/'
-    tag: '/tag/:name/'
 
 # Disqus comments
 # disqus_shortname: bencentra
@@ -58,6 +47,11 @@ descriptions:
 
   - cat: dummy
     desc: "Just some placeholder posts, lorem ipsum and the rest."
+
+disqus:
+    # Leave shortname blank to disable comments site-wide.
+    # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+    shortname: https-decision-j-github-io
 
 # Social icons and sharing options
 #
@@ -191,12 +185,12 @@ social:
 # These are for automatically generating sharing metadata for FB and Twitter
 # OS Protocol is for sharing the source of your site, if you're interested. For more, see osprotocol.com
 protocols:
-    fb_image: "/assets/logo.png"
+    fb_image: "/assets/jlogo.png"
     fb_image_width: 612
     fb_image_height: 605
     fb_image_type: "image/png"
 
-    twitter_image: "/assets/logo.png"
+    twitter_image: "/assets/jlogo.png"
 
     os_repo: "https://github.com/bencentra/centrarium.com"
     os_rcs_type: "git"

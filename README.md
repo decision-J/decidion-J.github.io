@@ -1,2 +1,2 @@
 # decidion-J.github.io
-my assume blog :)
+my Awesome blog :)

@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "[Kaggle Study]Walmart SaleType Classification"
+categories: kaggle
+title:  "Walmart SaleType Classification"
 date:   2020-02-20
 author: HaeYong JOUNG
-tags:
+tags: kaggle
+comments: true
 ---
 
 ## Kaggle Study #1. - Walmart SaleType Classification
