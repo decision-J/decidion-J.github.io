@@ -11,7 +11,9 @@ comments: true
 ## COVID-19 Modeling
 
 ### Spatio variation of COVID-19 spread focusing on infection Hotspot
-
+<script type="text/javascript"
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
 이번 포스팅에서는 앞 서 EDA를 진행한 데이터들을 바탕으로 Modeling에 들어가보겠습니다.
 
 *본 게시글은 연세대학교 응용통계학과 대학원 "시공간 자료분석 (박재우 교수님)" 수업의 파이널 프로젝트였음을 미리 밝힙니다.*
