@@ -40,7 +40,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/FirstDate.png){: width=60% height=80%}
+![PNG](https://decision-J.github.io/assets/covid/FirstDate.png){: width=70% height=80%}
 
 
 
@@ -126,7 +126,7 @@ $$
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/result_targetmap.png){: width=60% height=80%}
+![PNG](https://decision-J.github.io/assets/covid/result_targetmap.png){: width=70% height=80%}
 
 
 
@@ -138,7 +138,7 @@ $$
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/result_korea.png){: width=60% height=80%}
+![PNG](https://decision-J.github.io/assets/covid/result_korea.png){: width=60% height=70%}
 
 
 
