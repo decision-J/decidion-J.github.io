@@ -32,7 +32,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/Hotspots.PNG){: width="200" height="200"}
+![PNG](https://decision-J.github.io/assets/covid/Hotspots.png){: width="50" height="50"}
 
 
 
@@ -40,7 +40,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/FirstDate.PNG){: width="200" height="200"}
+![PNG](https://decision-J.github.io/assets/covid/FirstDate.png){: width="50" height="50"}
 
 
 
@@ -53,35 +53,50 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
 #### Predict the date
 
 저는 분석을 위해 Bayesian inference를 통한 Hierarchical SGLMM을 이용하고자 합니다. 일단 예측하고자 하는 첫 확진자 발생 날짜를 $Y$라고 한다면 우리의 데이터가 point-reference 데이터이므로 다음과 같이 표현이 가능합니다.
-\\
-$$\mathbf{Y(s)} = \{Y(s_1), Y(s_2), ... , Y(s_n)\},  s_i \in \Re^2\\\textit{where } \{s_1, s_2, ... , s_n\}  \textit{are locations}$$
-\\
+
+$$
+\begin{gathered}
+\mathbf{Y(s)} = \{Y(s_1), Y(s_2), ... , Y(s_n)\},  s_i \in \Re^2\\\textit{where } \{s_1, s_2, ... , s_n\}  \textit{are locations}
+\end{gathered}
+$$
+
 이러한 $\mathbf{Y(s)}$를 예측하기 위해 Gaussian process를 이용한 Kriging으로 일종의 선형식을 fitting합니다. 사용되는 항으로는 첫 째로 $\mathbf{Y(s)}$의 추세를 예측할 mean function, 둘 째로 spatial correlation effect를 반영해주는 term, 마지막으로 불규칙성을 반영할 nugget term이 존재합니다.
 
 여기서 mean function을 예측할 때 3가지 변수가 사용되며 각각 위도, 경도, 집단 발병지의 확진자 수가 사용됩니다. 집단 발병지의 확진자 수를 세부 변수로 넣는 이유는 집단 발병의 심각성에 따라 확진자 전파에 weight를 다르게 부여하고 싶었기 때문입니다.
-\\
- $$\mathbf{Y(s)} = \mathbf{\mu(s)} + \mathbf{w(s)}+\mathbf{\epsilon(s)}\\
+
+$$
+\begin{gathered}
+\mathbf{Y(s)} = \mathbf{\mu(s)} + \mathbf{w(s)}+\mathbf{\epsilon(s)}\\
  \textit{where } \mathbf{\mu(s)}=\mathbf{\beta_0}+\mathbf{\beta_1 X_1} +\mathbf{\beta_2 X_2}+\mathbf{\beta_3 X_3},\\
  \mathbf{w(s)} \sim GP(0, K(\cdot)) \textit{ with Matern covariance},\\
- \mathbf{\epsilon(s)} \sim N(0, \tau^2)$$
-\\
+ \mathbf{\epsilon(s)} \sim N(0, \tau^2)
+\end{gathered}
+$$
+
 위 식에서는 총 4가지의 변수가 fitting되어야 합니다. 먼저 mean function에서 사용한 변수들에 대한 $\beta$, spatial correlation 반영을 위해 사용한 Matern covariance 내부의 변수 $\sigma^2$, $\phi$, 불규칙 nugget term의 변수 $\tau^2$가 바로 그 것입니다. 우리는 Hierarchical MCMC를 통해서 각 변수들을 estimate해보겠습니다. 먼저 MCMC를 위해 각 변수들에 대한 prior를 줍니다. 최대한 non-informative하면서 conjugate한 prior로 선정합니다.
-\\
-$$\mathbf{\theta} = (\beta_0, \beta_1, \beta_2, \beta_3, \sigma^2, \phi, \tau^2)$$
+
+$$
+\begin{gathered}
+\mathbf{\theta} = (\beta_0, \beta_1, \beta_2, \beta_3, \sigma^2, \phi, \tau^2)$$
 $$\textit{where priors are }\\
 p(\mathbf{\beta}) \sim N(m_{\beta}, V_{\beta})\\
 p(\sigma^2) \sim IG(a_{\sigma^2},b_{\sigma^2})\\
 p(\phi) \sim U(a_{\phi},b_{\phi})\\
-p(\tau^2) \sim IG(a_{\tau^2},b_{\tau^2})$$
-\\
+p(\tau^2) \sim IG(a_{\tau^2},b_{\tau^2})
+\end{gathered}
+$$
+
 이 후 20만번의 iteration을 통해서 변수들의 estimate을 구합니다.
-\\
-$$\mathbf{\hat{\theta}} = \dfrac{1}{n}\sum_{i=1}^{n}\mathbf{\theta_i} \textit{, where } n=200,000$$
-\\
+
+$$
+\begin{gathered}
+\mathbf{\hat{\theta}} = \dfrac{1}{n}\sum_{i=1}^{n}\mathbf{\theta_i} \textit{, where } n=200,000
+\end{gathered}
+$$
 
 (MCMC의 수렴 결과는 다음과 같습니다.)
 
-![PNG](https://decision-J.github.io/assets/covid/MCMC.PNG){: width="200" height="200"}
+![PNG](https://decision-J.github.io/assets/covid/MCMC.PNG){: width="200" height="500"}
 
 
 
@@ -101,7 +116,7 @@ $$\mathbf{\hat{\theta}} = \dfrac{1}{n}\sum_{i=1}^{n}\mathbf{\theta_i} \textit{, 
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/result_arrow.PNG){: width="200" height="200"}
+![PNG](https://decision-J.github.io/assets/covid/result_arrow.png){: width="50" height="50"}
 
 
 
@@ -111,7 +126,7 @@ $$\mathbf{\hat{\theta}} = \dfrac{1}{n}\sum_{i=1}^{n}\mathbf{\theta_i} \textit{, 
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/result_targetmap.PNG){: width="200" height="200"}
+![PNG](https://decision-J.github.io/assets/covid/result_targetmap.png){: width="50" height="50"}
 
 
 
@@ -123,7 +138,7 @@ $$\mathbf{\hat{\theta}} = \dfrac{1}{n}\sum_{i=1}^{n}\mathbf{\theta_i} \textit{, 
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/result_korea.PNG){: width="200" height="200"}
+![PNG](https://decision-J.github.io/assets/covid/result_korea.png){: width="50" height="50"}
 
 
 
