@@ -32,7 +32,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/Hotspots.png){: width="200" height="200"}
+![PNG](https://decision-J.github.io/assets/covid/Hotspots.png){: width=60% height=80%}
 
 
 
@@ -40,7 +40,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/FirstDate.png){: width="200" height="200"}
+![PNG](https://decision-J.github.io/assets/covid/FirstDate.png){: width=60% height=80%}
 
 
 
@@ -116,7 +116,7 @@ $$
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/result_arrow.png){: width="200" height="200"}
+![PNG](https://decision-J.github.io/assets/covid/result_arrow.png){: width=60% height=80%}
 
 
 
@@ -126,7 +126,7 @@ $$
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/result_targetmap.png){: width="200" height="200"}
+![PNG](https://decision-J.github.io/assets/covid/result_targetmap.png){: width=60% height=80%}
 
 
 
@@ -138,7 +138,7 @@ $$
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/result_korea.png){: width="200" height="200"}
+![PNG](https://decision-J.github.io/assets/covid/result_korea.png){: width=60% height=80%}
 
 
 
