@@ -32,7 +32,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/Hotspots.png){: width="50" height="50"}
+![PNG](https://decision-J.github.io/assets/covid/Hotspots.png){: width="200" height="200"}
 
 
 
@@ -40,7 +40,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/FirstDate.png){: width="50" height="50"}
+![PNG](https://decision-J.github.io/assets/covid/FirstDate.png){: width="200" height="200"}
 
 
 
@@ -77,8 +77,8 @@ $$
 
 $$
 \begin{gathered}
-\mathbf{\theta} = (\beta_0, \beta_1, \beta_2, \beta_3, \sigma^2, \phi, \tau^2)$$
-$$\textit{where priors are }\\
+\mathbf{\theta} = (\beta_0, \beta_1, \beta_2, \beta_3, \sigma^2, \phi, \tau^2)\\
+\textit{where priors are }\\
 p(\mathbf{\beta}) \sim N(m_{\beta}, V_{\beta})\\
 p(\sigma^2) \sim IG(a_{\sigma^2},b_{\sigma^2})\\
 p(\phi) \sim U(a_{\phi},b_{\phi})\\
@@ -116,7 +116,7 @@ $$
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/result_arrow.png){: width="50" height="50"}
+![PNG](https://decision-J.github.io/assets/covid/result_arrow.png){: width="200" height="200"}
 
 
 
@@ -126,7 +126,7 @@ $$
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/result_targetmap.png){: width="50" height="50"}
+![PNG](https://decision-J.github.io/assets/covid/result_targetmap.png){: width="200" height="200"}
 
 
 
@@ -138,7 +138,7 @@ $$
 
 
 
-![PNG](https://decision-J.github.io/assets/covid/result_korea.png){: width="50" height="50"}
+![PNG](https://decision-J.github.io/assets/covid/result_korea.png){: width="200" height="200"}
 
 
 
