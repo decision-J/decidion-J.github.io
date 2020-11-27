@@ -85,11 +85,6 @@ Convolution layer에서는 n-gram filter로 word vector의 feature map을 생성
 $$
 \begin{gathered}
 F_n^{conv} \in \Re^{200 \times n \times E} \\
-\textit{where}\,\,\, n = 1,2,3
-\end{gathered}
-$$
-$$
-\begin{gathered}
 FM_n \in \Re^{200 \times (W-n+1) \times 1} \\
 \textit{where}\,\,\, n = 1,2,3
 \end{gathered}
