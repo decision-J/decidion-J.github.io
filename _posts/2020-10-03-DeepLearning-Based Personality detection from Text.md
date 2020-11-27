@@ -31,12 +31,6 @@ Deep Learning-Based Personality Detection from Text
 ### Process
 Classification을 진행하는 절차는 다음과 같습니다. 하나하나 차근차근 살펴보겠습니다.
 
-> **1. Data Input**
-> **2. Preprocessing & Filtering**
-> **3. Modeling**
-> **4. Output**
-
-
 #### 1. Data Input
 분석을 진행하기 위해 Text data를 확보합니다. 여기서 중요한 것은 각 Text data마다 5 class에 대한 **label**이 붙어있어야 한다는 것입니다. 이는 뒤에서 소개할 모델링이 Supervised learning으로 구성되어 있기 때문인데, 본 논문의 아쉬운 점 중 하나라고 생각합니다. (새로운 text data를 구할 때마다 5가지 특성에 대한 class를 새로 달아주어야 하기 때문이죠.) 저자는 *James Pennebaker and Laura King’s stream-of-consciousness essay dataset*을 사용하였고 2,467개의 essay data가 포함되어 있습니다.
 
