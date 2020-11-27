@@ -65,10 +65,10 @@ Model에서 중요한 layer는 다음과 같습니다.
 
 * **Input layer**
 Input layer에 투입되는 text data는 4-dimensional array로 구성됩니다.
-\
+
 $$
 \begin{gathered}
-\R^{D\times S\times W\times E}\\
+\Re^{D\times S\times W\times E}\\
 \textit{where}\ D = \textit{Number of documents}\\
 S = \textit{Maximum number of sentences}\\
 W = \textit{Maximum number of words}\\
@@ -81,7 +81,7 @@ $$
 
 * **Convolution layer**
 Convolution layer에서는 n-gram filter로 word vector의 feature map을 생성합니다. 본 논문에서는 uni, bi, trigram filter 3가지 종류를 사용하고, 각 filter마다 200개씩의 개수를 가지고 있습니다.
-\
+
 $$
 \begin{gathered}
 F_n^{conv} \in \Re^{200 \times n \times E} \\
@@ -98,7 +98,7 @@ $$
 
 * **Max pooling layer**
 각 Feature map의 대표 특성만을 추출하면서 down-sizing 해주기 위해 max pooling layer를 거칩니다.
-\
+
 $$
 \begin{gathered}
 DFM_n \in \Re^{200 \times 1 \times 1}
@@ -108,7 +108,7 @@ $$
 
 * **Concatenation layer**
 지금까지 word-level에서의 feature 추출 작업을 진행했습니다. 이를 결합해서 sentence-level에 해당하는 vector를 생성해야 합니다. Concatenation layer에서는 max pooling을 거친 feature vector를 flatten한 뒤 결합하여 sentence-level vector를 만듭니다.
-\
+
 $$
 \begin{gathered}
 s_i \in \Re^{600} \\
@@ -119,7 +119,7 @@ $$
 
 * **1-max pooling layer**
 이제 각 sentence vector들의 최대 특성을 추출하여 document-level의 vector를 생성해줍니다.
-\
+
 $$
 \begin{gathered}
 d^{network} = max(s_i, s_j) \in \Re^{600}
@@ -127,7 +127,7 @@ d^{network} = max(s_i, s_j) \in \Re^{600}
 $$
 
 이 때 본 논문에서는 document자체의 특성에 더하여 $\textit{Mairesse}$ (2007)의 document feature를 추가해줍니다. 이 벡터는 document의 feature를 detection하는 데 도움을 주는 역할입니다. 총 84개의 feature를 포함하고 있습니다. 따라서 이를 모두 합쳐 classification에 넣을 vector를 생성합니다.
-\
+
 $$
 \begin{gathered}
 d^{concat} = (d^{network}, d^{Mairesse}) \in \Re^{684}
@@ -137,7 +137,7 @@ $$
 
 * **Fully connected & Output layer**
 구해진 최종 document vector를 사용하여 Classification할 Personality에 해당하는지 아닌지 softmax function을 활용하여 확률을 예측합니다.
-\
+
 $$
 \begin{gathered}
  p(i|\theta) = \frac{exp(x_i)}{exp(x_{yes})+exp(x_{no})}, \textit{for i} \in \text{[yes, no]}
