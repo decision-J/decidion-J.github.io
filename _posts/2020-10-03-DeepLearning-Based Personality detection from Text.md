@@ -24,7 +24,7 @@ Deep Learning-Based Personality Detection from Text
 ### Objective
  본 논문의 목표는 주어진 Text에서 저자의 Personality를 detection하는 것입니다. 일종의 감성 분석이라고 볼 수 있는데요. 논문의 저자는 찾아내고자 하는 특성으로 5가지 Personality traits를 제안합니다. 따라서 **5-level classification** 문제라고 정의할 수 있습니다.
 ​
-![PNG](https://hyj0103.github.io/assets/traits.png)
+![PNG](https://hyj0103.github.io/assets/Personality_detection/traits.png)
 
 
 
@@ -48,7 +48,7 @@ Data를 받고나면 전처리 과정을 거쳐서 model에 넣어주어야 합�
 
 
 #### 3. Modeling
-![PNG](https://hyj0103.github.io/assets/model architecture.png)
+![PNG](https://hyj0103.github.io/assets/Personality_detection/model architecture.png)
 
 이제 본격적으로 CNN Model의 Architecture에 대해 살펴보겠습니다.  
 Model에서 중요한 layer는 다음과 같습니다.
@@ -64,7 +64,7 @@ Model에서 중요한 layer는 다음과 같습니다.
 이 중에서 Input, Convolution, Max-pooling layer는 Word-level에서 분석이 진행되고 Concatenation layer는 Sentence-level에서 진행됩니다. 마지막 1-max pooling, Fully connected, Output layer는 Document-level에서 최종적으로 classification을 수행합니다. 이제 각각에 대해 알아보도록 하겠습니다.
 
 * **Input layer**
-Input layer에 투입되는 text data는 4-dimensional array로 구성됩니다. 
+Input layer에 투입되는 text data는 4-dimensional array로 구성됩니다.
 \
 $$ \R^{D\times S\times W\times E}\\
 \textit{where}\ D = \textit{Number of documents}\\
@@ -72,14 +72,49 @@ S = \textit{Maximum number of sentences}\\
 W = \textit{Maximum number of words}\\
 E = \textit{Length of word embeddings} $$
 
+여기서 S, W는 단어와 문장의 최대값으로 표현되는 데, 이보다 적은 단어 혹은 문장을 가진 벡터의 경우 padding을 통해 채워줍니다. 또한 단어들의 관계에 대한 word representation이 이루어져야 하므로 embedding space를 활용하게 되는 데 이 때의 dimension이 E로 표현됩니다. 본 논문에서는 구글의 word2vec을 사용하므로 E는 300이 되겠습니다.
 
 
+* **Convolution layer**
+Convolution layer에서는 n-gram filter로 word vector의 feature map을 생성합니다. 본 논문에서는 uni, bi, trigram filter 3가지 종류를 사용하고, 각 filter마다 200개씩의 개수를 가지고 있습니다.
+\
+$$ F_n^{conv} \in \R^{200 \times n \times E} \\
+\textit{where}\,\,\, n = 1,2,3$$
+$$FM_n \in \R^{200 \times (W-n+1) \times 1} \\
+\textit{where}\,\,\, n = 1,2,3 $$
 
 
+* **Max pooling layer**
+각 Feature map의 대표 특성만을 추출하면서 down-sizing 해주기 위해 max pooling layer를 거칩니다.
+\
+$$ DFM_n \in \R^{200 \times 1 \times 1} $$
 
 
+* **Concatenation layer**
+지금까지 word-level에서의 feature 추출 작업을 진행했습니다. 이를 결합해서 sentence-level에 해당하는 vector를 생성해야 합니다. Concatenation layer에서는 max pooling을 거친 feature vector를 flatten한 뒤 결합하여 sentence-level vector를 만듭니다.
+\
+$$ s_i \in \R^{600} \\
+\textit{where i is the number of sentences}$$
 
 
+* **1-max pooling layer**
+이제 각 sentence vector들의 최대 특성을 추출하여 document-level의 vector를 생성해줍니다.
+\
+$$ d^{network} = max(s_i, s_j) \in \R^{600} $$
+
+이 때 본 논문에서는 document자체의 특성에 더하여 $\textit{Mairesse}$ (2007)의 document feature를 추가해줍니다. 이 벡터는 document의 feature를 detection하는 데 도움을 주는 역할입니다. 총 84개의 feature를 포함하고 있습니다. 따라서 이를 모두 합쳐 classification에 넣을 vector를 생성합니다.
+\
+$$ d^{concat} = (d^{network}, d^{Mairesse}) \in \R^{684} $$
 
 
+* **Fully connected & Output layer**
+구해진 최종 document vector를 사용하여 Classification할 Personality에 해당하는지 아닌지 softmax function을 활용하여 확률을 예측합니다.
+\
+$$ p(i|\theta) = \frac{exp(x_i)}{exp(x_{yes})+exp(x_{no})}, \textit{for i} \in \text{[yes, no]}
+$$
+
+
+여기까지 아키텍처를 구성하는 7가지의 layer들을 살펴보았습니다. 본 모델에 train이 필요한 부분은 총 3가지 layer입니다. Convolution layer에서의 word filter, Fully connectec layer에서의 weight와 bias, Softmax layer에서의 weight, bias이 이에 해당합니다. 저자는 이 파라미터들을 **Negative log likelihood**를 loss function으로 하여 **Ada delta method**로 학습시키고 있습니다.
+
+여기까지 논문의 리뷰를 마치고 다음 포스팅에서 본 모델을 활용한 기사 분류 프로젝트를 실습해보겠습니다!
 ​
