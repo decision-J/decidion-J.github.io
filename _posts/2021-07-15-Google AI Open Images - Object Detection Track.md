@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: Kaggle
+categories: kaggle
 title:  "Google AI Open Images - Object Detection Track"
 date:   2021-07-15
 author: HaeYong Joung
