@@ -88,7 +88,7 @@ if (save_labels){
 
 위 사진을 가지고 실행코드를 돌려보면 아래와 같은 실행 결과를 얻을 수 있습니다.
 
-<pre style="max-height: 400px;">
+<pre style="auto">
 <code>
   /content/darknet
    CUDA-version: 11000 (11020), cuDNN: 7.6.5, CUDNN_HALF=1, GPU count: 1  
@@ -261,10 +261,10 @@ if (save_labels){
 - - -
 ### Reference
 
-1. Kaggle page: [Google AI Open Images - Object Detection Track, 2018](https://www.kaggle.com/c/google-ai-open-images-object-detection-track/overview)
+1. **Kaggle page**: [Google AI Open Images - Object Detection Track, 2018](https://www.kaggle.com/c/google-ai-open-images-object-detection-track/overview)
 
-2. Data description: [Open Images Challenge page](https://storage.googleapis.com/openimages/web/challenge.html)
+2. **Data description**: [Open Images Challenge page](https://storage.googleapis.com/openimages/web/challenge.html)
 
-3. AlexeyAB Darknet source code: [https://github.com/AlexeyAB/darknet](https://github.com/AlexeyAB/darknet)
+3. **AlexeyAB Darknet source code**: [https://github.com/AlexeyAB/darknet](https://github.com/AlexeyAB/darknet)
 
-4. Darknet 활용 참고 블로그: [https://m.blog.naver.com/bigdata-pro/221781790878](https://m.blog.naver.com/bigdata-pro/221781790878)
+4. **Darknet 활용 참고 블로그**: [https://m.blog.naver.com/bigdata-pro/221781790878](https://m.blog.naver.com/bigdata-pro/221781790878)
