@@ -257,14 +257,11 @@ if (save_labels){
 계속되는 변명같지만 코드 공부가 목적이었기 때문에 빠른 시간 안에 baseline 결과물을 만들어 보았습니다.
 아무래도 pre-trained model만 가지고 아무런 tuning없이 진행하다보니 성능이 그렇게 좋지는 않습니다. 실제로 위의 result 결과를 보면 사람처럼 <U>큰 class를 제외하고는</U> 잘 찾지 못한 모습을 알 수 있습니다. (컴퓨터, 의자, 책상 등은 detecting 실패) 실제 모델을 적용할 때에는 더 세세한 tuning과 train이 필요할 것으로 보입니다.
 
-
 - - -
 ### Reference
 
 1. **Kaggle page**: [Google AI Open Images - Object Detection Track, 2018](https://www.kaggle.com/c/google-ai-open-images-object-detection-track/overview)
-
 2. **Data description**: [Open Images Challenge page](https://storage.googleapis.com/openimages/web/challenge.html)
-
 3. **AlexeyAB Darknet source code**: [https://github.com/AlexeyAB/darknet](https://github.com/AlexeyAB/darknet)
-
 4. **Darknet 활용 참고 블로그**: [https://m.blog.naver.com/bigdata-pro/221781790878](https://m.blog.naver.com/bigdata-pro/221781790878)
+5. **Codes**: [decision-j gitgub](https://github.com/decision-J/ComputerVision/tree/main/%5BKaggle%5D%20Google%20AI%20Open%20Images%20-%20Object%20Detection%20Track(2018))
