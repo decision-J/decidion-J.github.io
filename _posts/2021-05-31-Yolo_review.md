@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: Computer-Vision
-title:  "YOLO paper review"
+title:  "[Paper review] YOLO v1"
 date:   2021-05-31
 author: HaeYong Joung
 tags: CV object-detection yolo
